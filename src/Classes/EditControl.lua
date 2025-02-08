@@ -61,7 +61,7 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 		local _, height = self:GetSize()
 		return height - 4
 	end
-	if self.filter == "%D" or self.filter == "^%-%d" then
+	if self.filter == "%D" or self.filter == "^%-%d" or self.filter == "%d+%.%d" then
 		-- Add +/- buttons for integer number edits
 		self.isNumeric = true
 		self.controls.buttonDown = new("ButtonControl", {"RIGHT",self,"RIGHT"}, {-2, 0, buttonSize, buttonSize}, "-", function()
@@ -675,22 +675,23 @@ function EditClass:OnKeyUp(key)
 		end
 	elseif self.isNumeric then
 		local cur = tonumber(self.buf)
+		local increment = (self.filter == "%d+%.%d") and 0.1 or 1 -- if number has decimal formatting, set increment to 0.1 instead of 1
 		if key == "WHEELUP" or key == "UP" then
 			if cur then
-				self:SetText(tostring(cur + (self.numberInc or 1)), true)
+				self:SetText(tostring(cur + (self.numberInc or increment)), true)
 			else
 				if self.placeholder then
-					self:SetText(tostring((tonumber(self.placeholder) or 0) + (self.numberInc or 1)), true)
+					self:SetText(tostring((tonumber(self.placeholder) or 0) + (self.numberInc or increment)), true)
 				else
 					self:SetText("1", true)
 				end
 			end
 		elseif key == "WHEELDOWN" or key == "DOWN" then
 			if cur and (self.filter ~= "%D" or cur > 0)then
-				self:SetText(tostring(cur - (self.numberInc or 1)), true)
+				self:SetText(tostring(cur - (self.numberInc or increment)), true)
 			else
 				if self.placeholder then
-					self:SetText(tostring((tonumber(self.placeholder) or 0) - (self.numberInc or 1)), true)
+					self:SetText(tostring((tonumber(self.placeholder) or 0) - (self.numberInc or increment)), true)
 				else
 					self:SetText("0", true)
 				end

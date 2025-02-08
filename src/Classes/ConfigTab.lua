@@ -167,8 +167,8 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 					self:BuildModList()
 					self.build.buildFlag = true
 				end)
-			elseif varData.type == "count" or varData.type == "integer" or varData.type == "countAllowZero" or varData.type == "float" then
-				control = new("EditControl", {"TOPLEFT",lastSection,"TOPLEFT"}, {234, 0, 90, 18}, "", nil, (varData.type == "integer" and "^%-%d") or (varData.type == "float" and "^%d.") or "%D", 7, function(buf, placeholder)
+			elseif varData.type == "count" or varData.type == "integer" or varData.type == "countAllowZero" or varData.type == "float" or varData.type == "countDecimal1" then
+				control = new("EditControl", {"TOPLEFT",lastSection,"TOPLEFT"}, {234, 0, 90, 18}, "", nil, (varData.type == "integer" and "^%-%d") or (varData.type == "float" and "^%d.") or (varData.type == "countDecimal1" and "%d+%.%d") or "%D", 7, function(buf, placeholder)
 					if placeholder then
 						self.configSets[self.activeConfigSetId].placeholder[varData.var] = tonumber(buf)
 					else
@@ -537,7 +537,7 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 				end
 				if varData.type == "check" then
 					self.defaultState[varData.var] = varData.defaultState or false
-				elseif varData.type == "count" or varData.type == "integer" or varData.type == "countAllowZero" or varData.type == "float" then
+				elseif varData.type == "count" or varData.type == "integer" or varData.type == "countAllowZero" or varData.type == "countDecimal1" or varData.type == "float" then
 					self.defaultState[varData.var] = varData.defaultState or 0
 				elseif varData.type == "list" then
 					self.defaultState[varData.var] = varData.list[varData.defaultIndex or 1].val
