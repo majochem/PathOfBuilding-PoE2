@@ -45,6 +45,7 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 	self.prompt = prompt
 	self.filter = filter or (main.unicode and "%c" or "^%w%p ")
 	self.filterPattern = "["..self.filter.."]"
+	self.numFilters = { count = "%D", countAllowZero = "%D", countDecimal1 = "^0-9.", integer = "^%-%d", float = "^%d." } -- table of known filter patterns that indicate particular number types
 	self.limit = limit
 	self.changeFunc = changeFunc
 	self.lineHeight = lineHeight
@@ -57,13 +58,20 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 	self.selBGCol = "^xBBBBBB"
 	self.blinkStart = GetTime()
 	self.allowZoom = allowZoom
+
+	-- Determine if saved value type is supposed to be numeric
+	for _, numFilter in pairs(self.numFilters) do
+		if self.filter == numFilter then
+			self.isNumeric = true
+			break
+		end
+	end
 	local function buttonSize()
 		local _, height = self:GetSize()
 		return height - 4
 	end
-	if self.filter == "%D" or self.filter == "^%-%d" or self.filter == "%d+%.%d" then
-		-- Add +/- buttons for integer number edits
-		self.isNumeric = true
+	if self.filter == self.numFilters.count or self.filter == self.numFilters.countAllowZero or self.filter == self.numFilters.countDecimal1 or self.filter == self.numFilters.integer then
+		-- Add +/- buttons for certain number edits
 		self.controls.buttonDown = new("ButtonControl", {"RIGHT",self,"RIGHT"}, {-2, 0, buttonSize, buttonSize}, "-", function()
 			self:OnKeyUp("DOWN")
 		end)
@@ -147,8 +155,10 @@ function EditClass:ReplaceSel(text)
 	local newBuf = self.buf:sub(1, left - 1) .. text .. self.buf:sub(right)
 	if self.limit and #newBuf > self.limit then
 		return
+	elseif self.isNumeric and not self:ValidateNumber(newBuf) then
+		return -- failed number formatting
 	end
-	self.buf = newBuf
+	self.buf = (self.isNumeric) and self:FormatNumber(newBuf) or newBuf
 	self.caret = left + #text
 	self.sel = nil
 	self:ScrollCaretIntoView()
@@ -159,6 +169,65 @@ function EditClass:ReplaceSel(text)
 	self:AddUndoState()
 end
 
+-- Function to validate if entry fits number formatting. Should only be called if self.isNumeric
+---@param newBufText string @Combination of new text input with previously existing value self.buf
+---@return boolean @If text is accepted as valid input for current number format / filterPattern
+function EditClass:ValidateNumber(newBufText)
+	if not self.isNumeric then return false end -- Just in case...
+	
+	local _, countPeriods = newBufText:gsub("%.", "%.")
+	local _, countMinus = newBufText:gsub("%-", "%-")
+
+	-- Check correct period count and placement
+	if countPeriods > 1 then
+		return false -- no more than one "."
+	elseif countPeriods == 1 then
+		if not self.filterPattern:find("%.") then
+			return false -- number is not supposed to have a decimal
+		else
+			if newBufText:find("%.") == 1 then
+				return false -- number cannot start with "."
+			else
+				return true
+			end
+		end
+	end
+
+	-- Check correct minus count and placement
+	if countMinus > 1 then
+		return false -- no more than one "-"
+	elseif countMinus == 1 then
+		if not self.filterPattern:find("%-") then
+			return false -- number is not supposed to have a minus
+		else
+			if not newBufText:find("%-") == 1 then
+				return false -- minus sign must be at the start
+			else
+				return true
+			end
+		end
+	end
+	
+	if newBufText:find("00") == 1 then return false end -- Check for double leading '0'
+	return true -- all checks passed
+end
+
+-- Function to properly format strings representing numbers. Should only be called if self.isNumeric
+---@param newBufText string @Combination of new text input with previously existing value self.buf
+---@return string @Properly formatted string
+function EditClass:FormatNumber(newBufText)
+	newBufText = newBufText or ""
+	if not self.isNumeric then return newBufText end 
+	if self.filter == self.numFilters.countDecimal1 then 
+		return string.format("%.1f", tonumber(newBufText)) -- force one decimal
+	elseif self.filter == self.numFilters.float then 
+		return string.format("%g", tonumber(newBufText)) -- keep decimals, but don't force
+	else
+		return string.format("%d", tonumber(newBufText)) -- no decimals
+	end
+end
+
+
 function EditClass:Insert(text)
 	text = text:gsub("\r","")
 	-- Remove any illegal chars from the "text" variable, to stop resulting in no text when an illegal character is found.
@@ -166,12 +235,16 @@ function EditClass:Insert(text)
 	if text == "" then
 		return
 	end
+
 	local newBuf = self.buf:sub(1, self.caret - 1) .. text .. self.buf:sub(self.caret)
+	
 	if self.limit and #newBuf > self.limit then
 		return
+	elseif self.isNumeric and not self:ValidateNumber(newBuf) then
+		return -- failed number formatting
 	end
-	self.buf = newBuf
-	self.caret = self.caret + #text
+	self.buf = (self.isNumeric) and self:FormatNumber(newBuf) or newBuf
+	self.caret = self.caret + #text + #self.buf - #newBuf
 	self.sel = nil
 	self:ScrollCaretIntoView()
 	self.blinkStart = GetTime()
@@ -675,7 +748,7 @@ function EditClass:OnKeyUp(key)
 		end
 	elseif self.isNumeric then
 		local cur = tonumber(self.buf)
-		local increment = (self.filter == "%d+%.%d") and 0.1 or 1 -- if number has decimal formatting, set increment to 0.1 instead of 1
+		local increment = (self.filter == self.numFilters.countDecimal1) and 0.1 or 1 -- if number has decimal formatting, set increment to 0.1 instead of 1
 		if key == "WHEELUP" or key == "UP" then
 			if cur then
 				self:SetText(tostring(cur + (self.numberInc or increment)), true)
