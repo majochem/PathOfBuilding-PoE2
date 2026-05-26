@@ -1137,9 +1137,9 @@ c["10% increased Trap Damage"]={{[1]={flags=0,keywordFlags=4096,name="Damage",ty
 c["10% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=10}},nil}
 c["10% increased Weapon Damage per 10 Strength"]={{[1]={[1]={div=10,stat="Str",type="PerStat"},flags=8192,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Withered Magnitude"]={{[1]={flags=0,keywordFlags=0,name="WitherEffect",type="INC",value=10}},nil}
-c["10% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=10}},nil}
-c["10% increased amount of Life Leeched while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=10}},nil}
-c["10% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=10}},nil}
+c["10% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=10}},nil}
+c["10% increased amount of Life Leeched while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=10}},nil}
+c["10% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="ManaLeechAmount",type="INC",value=10}},nil}
 c["10% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=10}},nil}
 c["10% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=10}},nil}
 c["10% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=10}},nil}
@@ -1245,7 +1245,7 @@ c["100% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",typ
 c["100% increased Stun Threshold during Empowered Attacks"]={{[1]={[1]={type="Condition",var="Empowered"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},nil}
 c["100% increased Stun Threshold for each time you've been Stunned Recently"]={{[1]={[1]={type="Multiplier",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},nil}
 c["100% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=100}},nil}
-c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=100}},nil}
+c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=100}},nil}
 c["100% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=100}},nil}
 c["100% increased effect of Socketed Items"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Items "}
 c["100% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=100}},nil}
@@ -1267,8 +1267,8 @@ c["11% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,nam
 c["11% increased Life Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="LifeCost",type="INC",value=11}},nil}
 c["11% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=11}},nil}
 c["11% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=11}},nil}
-c["11% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=11}},nil}
-c["11% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=11}},nil}
+c["11% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=11}},nil}
+c["11% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="ManaLeechAmount",type="INC",value=11}},nil}
 c["110% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=110}},nil}
 c["111% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=111}},nil}
 c["119% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=119}},nil}
@@ -1357,7 +1357,7 @@ c["12% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavySt
 c["12% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
 c["12% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
 c["12% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=12}},nil}
-c["12% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=12}},nil}
+c["12% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=12}},nil}
 c["12% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=12}},nil}
 c["12% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=12}},nil}
 c["12.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=12.5}},nil}
@@ -1570,8 +1570,8 @@ c["15% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",
 c["15% increased Totem Life"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type="INC",value=15}},nil}
 c["15% increased Volatility Explosion delay"]={{}," Volatility Explosion delay "}
 c["15% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=15}},nil}
-c["15% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=15}},nil}
-c["15% increased amount of Life Leeched while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=15}},nil}
+c["15% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=15}},nil}
+c["15% increased amount of Life Leeched while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=15}},nil}
 c["15% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=15}},nil}
 c["15% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=15}},nil}
 c["15% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=15}},nil}
@@ -1627,7 +1627,7 @@ c["150% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name
 c["150% increased Global Evasion Rating when on Low Life"]={{[1]={[1]={type="Global"},[2]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=150}},nil}
 c["150% increased Mana Regeneration Rate if you've dealt a Critical Hit Recently"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=150}},nil}
 c["150% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=150}},nil}
-c["150% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=150}},nil}
+c["150% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=150}},nil}
 c["150% of Strength Requirements from Boots, Gloves and Helmets also added to Armour"]={{[1]={[1]={percent=150,stat="StrRequirementsOnBoots",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1},[2]={[1]={percent=150,stat="StrRequirementsOnGloves",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1},[3]={[1]={percent=150,stat="StrRequirementsOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}},nil}
 c["16% increased Accuracy Rating at Close Range"]={{[1]={[1]={type="Condition",var="AtCloseRange"},flags=0,keywordFlags=0,name="AccuracyVsEnemy",type="INC",value=16}},nil}
 c["16% increased Accuracy Rating with One Handed Melee Weapons"]={{[1]={flags=21474836484,keywordFlags=0,name="Accuracy",type="INC",value=16}},nil}
@@ -1952,7 +1952,7 @@ c["20% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="Tot
 c["20% increased Tribute"]={{[1]={flags=0,keywordFlags=0,name="Tribute",type="INC",value=20}},nil}
 c["20% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=20}},nil}
 c["20% increased Withered Magnitude"]={{[1]={flags=0,keywordFlags=0,name="WitherEffect",type="INC",value=20}},nil}
-c["20% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=20}},nil}
+c["20% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=20}},nil}
 c["20% increased bonuses gained from Equipped Quiver"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromQuiver",type="INC",value=20}},nil}
 c["20% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=20}},nil}
 c["20% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
@@ -2028,7 +2028,7 @@ c["200% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name
 c["200% increased Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="IceCrystalLife",type="INC",value=200}},nil}
 c["200% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=200}},nil}
 c["200% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=200}},nil}
-c["200% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=200}},nil}
+c["200% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=200}},nil}
 c["200% increased bonuses gained from Equipped Quiver"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromQuiver",type="INC",value=200}},nil}
 c["200% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=200}},nil}
 c["21% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=21}},nil}
@@ -2209,7 +2209,7 @@ c["25% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="Tot
 c["25% increased Trap Damage"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=25}},nil}
 c["25% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=25}},nil}
 c["25% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=25}},nil}
-c["25% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=25}},nil}
+c["25% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="ManaLeechAmount",type="INC",value=25}},nil}
 c["25% increased bonuses gained from Equipped Rings and Amulets"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=25},[2]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=25},[3]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 3",type="INC",value=25},[4]={flags=0,keywordFlags=0,name="EffectOfBonusesFromAmulet",type="INC",value=25}},nil}
 c["25% increased bonuses gained from left Equipped Ring"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=25}},nil}
 c["25% increased bonuses gained from right Equipped Ring"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=25}},nil}
@@ -2469,9 +2469,9 @@ c["30% increased Totem Duration"]={{[1]={flags=0,keywordFlags=0,name="TotemDurat
 c["30% increased Totem Life"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type="INC",value=30}},nil}
 c["30% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=30}},nil}
 c["30% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=30}},nil}
-c["30% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=30}},nil}
-c["30% increased amount of Life Leeched if you've consumed a Frenzy Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableFrenzyCharge"},flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=30}},nil}
-c["30% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=30}},nil}
+c["30% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=30}},nil}
+c["30% increased amount of Life Leeched if you've consumed a Frenzy Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableFrenzyCharge"},flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=30}},nil}
+c["30% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="ManaLeechAmount",type="INC",value=30}},nil}
 c["30% increased bonuses gained from left Equipped Ring"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 1",type="INC",value=30}},nil}
 c["30% increased bonuses gained from right Equipped Ring"]={{[1]={flags=0,keywordFlags=0,name="EffectOfBonusesFromRing 2",type="INC",value=30}},nil}
 c["30% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=30}},nil}
@@ -2560,7 +2560,7 @@ c["35% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="Loo
 c["35% increased Spell Area Damage"]={{[1]={flags=514,keywordFlags=0,name="Damage",type="INC",value=35}},nil}
 c["35% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=35}},nil}
 c["35% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=35}},nil}
-c["35% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=35}},nil}
+c["35% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=35}},nil}
 c["35% less Armour and Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="MORE",value=-35}},nil}
 c["35% less Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="MORE",value=-35}},nil}
 c["35% less Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="MORE",value=-35}},nil}
@@ -2960,7 +2960,7 @@ c["50% increased Stun Threshold while Channelling"]={{[1]={[1]={type="Condition"
 c["50% increased Surrounded Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="SurroundedArea",type="INC",value=50}},nil}
 c["50% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=50}},nil}
 c["50% increased Totem Placement range"]={{[1]={flags=0,keywordFlags=16384,name="WeaponRange",type="INC",value=50}},"  Placement  "}
-c["50% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=50}},nil}
+c["50% increased amount of Mana Leeched"]={{[1]={flags=0,keywordFlags=0,name="ManaLeechAmount",type="INC",value=50}},nil}
 c["50% increased effect of Incision"]={{[1]={flags=0,keywordFlags=0,name="IncisionEffect",type="INC",value=50}},nil}
 c["50% increased effect of Small Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="SmallPassiveSkillEffect",type="INC",value=50}},nil}
 c["50% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=50}},nil}
@@ -3261,7 +3261,7 @@ c["8% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",
 c["8% increased Spirit Reservation Efficiency of Skills"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=8}},nil}
 c["8% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=8}},nil}
 c["8% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=8}},nil}
-c["8% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=8}},nil}
+c["8% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechAmount",type="INC",value=8}},nil}
 c["8% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=8}},nil}
 c["8% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=8}},nil}
 c["8% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=8}},nil}
