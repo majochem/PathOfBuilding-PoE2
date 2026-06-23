@@ -66,6 +66,11 @@ statMap = {
 #skill BloodhoundsMarkPlayer
 #set BloodhoundsMarkPlayer
 #flags
+statMap = {
+	["hunters_mark_%_of_max_threshold_to_trigger_explosion_on_death"] = {
+		mod("ExplosionThreshold", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -91,7 +96,6 @@ statMap = {
 #skill SummonBeastPlayer
 #set SummonBeastPlayer
 #flags spell minion summonBeast duration
-#baseMod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3
 #mods
 #skillEnd
 
@@ -368,7 +372,7 @@ statMap = {
 #flags attack projectile
 #mods
 #set PoisonBurstArrowCloudPlayer
-#flags attack projectile area
+#flags attack projectile area duration
 #mods
 #skillEnd
 

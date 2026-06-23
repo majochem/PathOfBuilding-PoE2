@@ -16,22 +16,52 @@ local H_PAD	= 12
 local V_PAD = 10
 -- spell-checker: disable
 local headerConfigs = {
-	RELIC = {left="Assets/itemsheaderfoilleft.png", middle="Assets/itemsheaderfoilmiddle.png", right="Assets/itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	UNIQUE = {left="Assets/itemsheaderuniqueleft.png", middle="Assets/itemsheaderuniquemiddle.png", right="Assets/itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	RARE = {left="Assets/itemsheaderrareleft.png", middle="Assets/itemsheaderraremiddle.png", right="Assets/itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-	MAGIC = {left="Assets/itemsheadermagicleft.png", middle="Assets/itemsheadermagicmiddle.png", right="Assets/itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-	NORMAL = {left="Assets/itemsheaderwhiteleft.png", middle="Assets/itemsheaderwhitemiddle.png", right="Assets/itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-	GEM = {left="Assets/itemsheadergemleft.png", middle="Assets/itemsheadergemmiddle.png", right="Assets/itemsheadergemright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	JEWEL = {left="Assets/jewelpassiveheaderleft.png", middle="Assets/jewelpassiveheadermiddle.png", right="Assets/jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	NOTABLE = {left="Assets/notablepassiveheaderleft.png", middle="Assets/notablepassiveheadermiddle.png", right="Assets/notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-	PASSIVE = {left="Assets/normalpassiveheaderleft.png", middle="Assets/normalpassiveheadermiddle.png", right="Assets/normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	KEYSTONE = {left="Assets/keystonepassiveheaderleft.png", middle="Assets/keystonepassiveheadermiddle.png", right="Assets/keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ASCENDANCY = {left="Assets/ascendancypassiveheaderleft.png", middle="Assets/ascendancypassiveheadermiddle.png", right="Assets/ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ORACLE_PASSIVE = {left="Assets/oraclenormalpassiveheaderleft.png", middle="Assets/oraclenormalpassiveheadermiddle.png", right="Assets/oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-	ORACLE_NOTABLE = {left="Assets/oraclenotablepassiveheaderleft.png", middle="Assets/oraclenotablepassiveheadermiddle.png", right="Assets/oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-	ORACLE_KEYSTONE = {left="Assets/oraclekeystonepassiveheaderleft.png", middle="Assets/oraclekeystonepassiveheadermiddle.png", right="Assets/oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	RELIC = {left="itemsheaderfoilleft.png", middle="itemsheaderfoilmiddle.png", right="itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	UNIQUE = {left="itemsheaderuniqueleft.png", middle="itemsheaderuniquemiddle.png", right="itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	RARE = {left="itemsheaderrareleft.png", middle="itemsheaderraremiddle.png", right="itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	MAGIC = {left="itemsheadermagicleft.png", middle="itemsheadermagicmiddle.png", right="itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+	NORMAL = {left="itemsheaderwhiteleft.png", middle="itemsheaderwhitemiddle.png", right="itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+	JEWEL = {left="jewelpassiveheaderleft.png", middle="jewelpassiveheadermiddle.png", right="jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	NOTABLE = {left="notablepassiveheaderleft.png", middle="notablepassiveheadermiddle.png", right="notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+	PASSIVE = {left="normalpassiveheaderleft.png", middle="normalpassiveheadermiddle.png", right="normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	KEYSTONE = {left="keystonepassiveheaderleft.png", middle="keystonepassiveheadermiddle.png", right="keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ASCENDANCY = {left="ascendancypassiveheaderleft.png", middle="ascendancypassiveheadermiddle.png", right="ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ORACLE_PASSIVE = {left="oraclenormalpassiveheaderleft.png", middle="oraclenormalpassiveheadermiddle.png", right="oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ORACLE_NOTABLE = {left="oraclenotablepassiveheaderleft.png", middle="oraclenotablepassiveheadermiddle.png", right="oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+	ORACLE_KEYSTONE = {left="oraclekeystonepassiveheaderleft.png", middle="oraclekeystonepassiveheadermiddle.png", right="oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 }
 -- spell-checker: enable
+
+local skillAssetMap
+local missingSkillAssets = { }
+local function getSkillAssetByName(name)
+	if not name or not data.skillAssets then
+		return nil
+	end
+	if not skillAssetMap then
+		skillAssetMap = { }
+		for file, fileInfo in pairs(data.skillAssets.ddsCoords or { }) do
+			local assetData = { }
+			assetData.handle = NewImageHandle()
+			assetData.handle:Load("Data/Skills/" .. file, "CLAMP")
+			assetData.width, assetData.height = assetData.handle:ImageSize()
+			for assetName, position in pairs(fileInfo) do
+				skillAssetMap[assetName] = {
+					found = assetData.width > 0,
+					handle = assetData.handle,
+					width = assetData.width,
+					height = assetData.height,
+					[1] = position,
+				}
+			end
+		end
+	end
+	if not skillAssetMap[name] and not missingSkillAssets[name] then
+		missingSkillAssets[name] = true
+		ConPrintf("missing skill asset with name " .. name)
+	end
+	return skillAssetMap[name]
+end
 
 local TooltipClass = newClass("Tooltip", function(self)
 	self.lines = { }
@@ -46,10 +76,15 @@ function TooltipClass:Clear(clearUpdateParams)
 		wipeTable(self.updateParams)
 	end
 	self.tooltipHeader = false
+	self.isUniqueGem = nil
+	self.runicItem = nil
 	self.titleYOffset = 0
 	self.recipe = nil
+	self.gemIcon = nil
+	self.gemBackground = nil
 	self.center = false
 	self.maxWidth = nil
+	self.minWidth = nil
 	self.color = { 0.5, 0.3, 0 }
 	t_insert(self.blocks, { height = 0 })
 end
@@ -82,7 +117,7 @@ function TooltipClass:AddLine(size, text, font, background)
 		else
 			fontToUse = "VAR"
 		end
-		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do 
+		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
 			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
 				t_insert(self.blocks, { height = size + 2})
 			else
@@ -145,7 +180,6 @@ function TooltipClass:AddSeparator(size)
 	})
 end
 
-
 function TooltipClass:GetSize()
 	local ttW, ttH = 0, 0
 	for i, data in ipairs(self.lines) do
@@ -175,6 +209,10 @@ function TooltipClass:GetSize()
 		ttW = m_max(ttW, imageX)
 	end
 
+	if self.minWidth then
+		ttW = m_max(ttW, self.minWidth)
+	end
+
 	return ttW + H_PAD, ttH + V_PAD
 end
 
@@ -187,7 +225,7 @@ function TooltipClass:GetDynamicSize(viewPort)
 		staticttW = m_max(staticttW, DrawStringWidth(self.lines[1].size, self.lines[1].font, self.lines[1].text) + 50)
 	end
 	local columns, ttH, _, extraColumnWidth = self:CalculateColumns(0, 0, staticttH, staticttW, viewPort)
-	
+
 	-- ensure extra column width has sensible value
 	extraColumnWidth = (columns > 1 and extraColumnWidth > 0) and extraColumnWidth or staticttW
 	local ttW = staticttW + (m_max(columns - 1, 0) * extraColumnWidth)
@@ -292,7 +330,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 
 			t_insert(drawStack, {lineX, y, lineAlign, data.size, font, data.text, background = data.background})
 			y = y + data.size + 2
-			
+
 			-- track max width for extra columns
 			if columns > 1 then
 				extraColumnWidth = m_max(extraColumnWidth, DrawStringWidth(data.size, font, data.text) + H_PAD)
@@ -327,7 +365,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 
 			-- calculate column index (origX is at least x * original widths from start)
 			local colIndex = m_floor((origX - ttX) / ttW) + 1
-			
+
 			if colIndex > 1 then
 				local oldBaseX = ttX + ttW * (colIndex - 1)
 				local newBaseX = ttX + ttW + extraColumnWidth * (colIndex - 2) -- `- 2` because first column is unchanged
@@ -406,7 +444,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	end
 
 	SetDrawColor(1, 1, 1)
-	
+
 	-- Initial column calculation
 	local columns, maxColumnHeight, drawStack, extraColumnWidth = self:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 
@@ -419,7 +457,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		local newX = m_max(viewPort.x, viewPort.x + viewPort.width - totalDrawWidth)
 		local offsetX = newX - ttX
 		ttX = newX
-		
+
 		for _, line in ipairs(drawStack) do
 			if #line < 6 then
 				-- Text element entries have 6 entries and `x` at `[2]`
@@ -462,16 +500,19 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		self.titleYOffset = config.textYOffset or 0
 
-		if not self.headerLeft or self.headerLeftPath ~= config.left then
+		local runic = self.runicItem and "runic" or ""
+		local leftPath = runic .. config.left
+
+		if not self.headerLeft or self.headerLeftPath ~= leftPath then
 			self.headerLeft = NewImageHandle()
-			self.headerLeft:Load(config.left)
-			self.headerLeftPath = config.left
+			self.headerLeft:Load("Assets/" .. leftPath)
+			self.headerLeftPath = leftPath
 			self.headerMiddle = NewImageHandle()
-			self.headerMiddle:Load(config.middle)
-			self.headerMiddlePath = config.middle
+			self.headerMiddle:Load("Assets/" .. runic .. config.middle)
+			self.headerMiddlePath = runic .. config.middle
 			self.headerRight = NewImageHandle()
-			self.headerRight:Load(config.right)
-			self.headerRightPath = config.right
+			self.headerRight:Load("Assets/" .. runic .. config.right)
+			self.headerRightPath = runic .. config.right
 		end
 
 		local headerHeight = config.height
@@ -489,7 +530,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2])
 		end
 
-		if main.showFlavourText then
+		if self.tooltipHeader ~= "GEM" then
 			-- Draw left cap first, then influence icon on top
 			DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
 			if self.influenceHeader1 and config.allowInfluenceIcon then
@@ -515,19 +556,46 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			if self.influenceHeader2 and config.allowInfluenceIcon then
 				DrawImage(self.influenceIcon2, headerX + headerTotalWidth - (headerHeight/2) - 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
+		elseif self.tooltipHeader == "GEM" then
+			local gemIconImage = getSkillAssetByName(self.gemIcon)
+			local gemBGImage = getSkillAssetByName(self.gemBackground)
+			local headerPath = self.isUniqueGem and "Assets/gemhovertitleunique.png" or "Assets/gemhovertitle.png"
+			if not self.gemHeaderImage or self.gemHeaderImagePath ~= headerPath then
+				self.gemHeaderImage = NewImageHandle()
+				self.gemHeaderImage:Load(headerPath)
+				self.gemHeaderImagePath = headerPath
+			end
+			if not self.gemIconBorder then
+				self.gemIconBorder = NewImageHandle()
+				self.gemIconBorder:Load("Assets/skillpanelskilliconframe.png")
+			end
+			DrawImage(self.gemHeaderImage, headerX, headerY, 375, 59)
+			if gemIconImage then
+				DrawImage(gemIconImage.handle, headerX + 21, headerY + 6, 46, 46, unpack(gemIconImage))
+				DrawImage(self.gemIconBorder, headerX + 21, headerY + 6, 48, 48)
+			end
+			if gemBGImage then
+				DrawImage(gemBGImage.handle, headerX + headerTotalWidth -500, headerY, 500, 266, unpack(gemBGImage))
+			else
+				if not self.gemEmptyImage then
+					self.gemEmptyImage = NewImageHandle()
+					self.gemEmptyImage:Load("Assets/gemhoverimageempty.png")
+				end
+				DrawImage(self.gemEmptyImage, headerX + headerTotalWidth -500, headerY, 500, 266)
+			end
 		end
 	end
 
 	-- Draw lines and images
 	local firstSeparatorSkipped = false
-	for _, line in ipairs(drawStack) do 
+	for _, line in ipairs(drawStack) do
 		if #line < 6 then
 			local skip = false
 			if line[1] and type(line[1]) == "table" and line[1].isSeparator then
 				-- Only skip first separator for items and skill gems
 				local tooltipType = self.tooltipHeader and tostring(self.tooltipHeader):upper() or ""
 				if main.showFlavourText and not firstSeparatorSkipped and
-				(tooltipType == "RELIC" or tooltipType == "UNIQUE" or tooltipType == "RARE" or tooltipType == "MAGIC" or tooltipType == "GEM") then
+				(tooltipType == "RELIC" or tooltipType == "UNIQUE" or tooltipType == "RARE" or tooltipType == "MAGIC" or tooltipType == "GEM" or tooltipType == "JEWEL") then
 					firstSeparatorSkipped = true
 					skip = true
 				else
@@ -556,7 +624,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			if bg then
 				-- Save current draw color BEFORE drawing background image, otherwise wrapped strings print white text for later lines.
 				local prevR, prevG, prevB, prevA = GetDrawColor()
-				
+
 				if type(bg) == "string" then
 					if not self._bgHandles then
 						self._bgHandles = {}
@@ -575,7 +643,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				local height = line[4] + 3
 				SetDrawColor(1,1,1,1)
 				DrawImage(bg, x + 4, y, width, height)
-				
+
 				-- Restore color BEFORE DrawString
 				SetDrawColor(prevR, prevG, prevB, prevA)
 			end
@@ -587,7 +655,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 	-- Draw borders
 	if type(self.color) == "string" then
-		SetDrawColor(self.color) 
+		SetDrawColor(self.color)
 	else
 		SetDrawColor(unpack(self.color))
 	end

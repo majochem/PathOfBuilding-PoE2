@@ -7,6 +7,32 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("shows duplicate selected variants in item tooltips when enabled", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Mageblood
+			Utility Belt
+			Has Alt Variant: true
+			Selected Variant: 1
+			Selected Alt Variant: 1
+			Allow Duplicate Variants: true
+			Variant: Legacy of Amethyst
+			Implicits: 0
+			{variant:1}Legacy of Amethyst
+		]])
+		local tooltip = new("Tooltip")
+
+		build.itemsTab:AddItemTooltip(tooltip, item)
+
+		local legacyLines = 0
+		for _, line in ipairs(tooltip.lines) do
+			if line.text and line.text:find("Legacy of Amethyst", 1, true) then
+				legacyLines = legacyLines + 1
+			end
+		end
+		assert.are.equals(2, legacyLines)
+	end)
+
 	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
 		build.configTab.input.customMods = "30% increased bonuses gained from left Equipped Ring"
 		build.configTab:BuildModList()
@@ -246,7 +272,7 @@ describe("TetsItemMods", function()
 			{range:1}(15-20)% increased Cold Damage per 1% Missing Cold Resistance, up to a maximum of 300%
 			{range:1}(15-20)% increased Fire Damage per 1% Missing Fire Resistance, up to a maximum of 300%]])
 		build.itemsTab:AddDisplayItem()
-		build.skillsTab:PasteSocketGroup("Slot: Weapon 1\nFireball 20/0 Default  1\n")
+		build.skillsTab:PasteSocketGroup("Slot: Weapon 1\nFireball 20/0  1\n")
 		runCallback("OnFrame")
 
 		assert.are_not.equals(340, build.calcsTab.mainEnv.modDB:Sum("INC", "FireDamage"))
@@ -493,8 +519,8 @@ describe("TetsItemMods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: RARE
 			Armour Chest
-			Glorious Plate
-			Armour: 534
+			Champion Cuirass
+			Armour: 526
 			Crafted: true
 			Prefix: None
 			Prefix: None
@@ -502,7 +528,7 @@ describe("TetsItemMods", function()
 			Suffix: None
 			Suffix: None
 			Suffix: None
-			Quality: 0
+			Quality: 18
 			LevelReq: 65
 			Implicits: 0
 		]])
@@ -675,23 +701,85 @@ describe("TetsItemMods", function()
 		assert.are.equals(11, smallModList:Sum("BASE", nil, "Dex"))
 	end)
 
-	it("ancestral bond", function()
+	it("Blistering Bond with Avatar of Fire", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: UNIQUE
-			Hoghunt
-			Felled Greatclub
-			Variant: Pre 0.1.1
-			Variant: Current
-			Selected Variant: 2
-			Quality: 20
-			LevelReq: 0
-			Implicits: 0
-			{variant:1}{range:0.5}(100-150)% increased Physical Damage
-			{variant:2}{range:0.5}Adds (16-20) to (23-27) Physical Damage
-			+15% to Critical Hit Chance
-			10% reduced Attack Speed
-			+10 to Strength
-			Maim on Critical Hit
+			The Blood Thorn
+			Wrapped Quarterstaff
+			{variant:1}{range:0.5}Adds (3-5) to (9-11) Physical Damage
+			{variant:2}{range:0.5}Adds (8-12) to (16-18) Physical Damage
+			{range:0.5}+(10-15) to Strength
+			Causes Bleeding on Hit
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.configTab.input.customMods = [[
+		75% of Damage Converted to Fire Damage
+		Deal no Non-Fire Damage
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1")
+		runCallback("OnFrame")
+
+		local baseBleedPlusAvatarWithoutBlistering = build.calcsTab.mainOutput.BleedDPS
+		assert.True(baseBleedPlusAvatarWithoutBlistering == nil) -- fire cannot bleed, deal no physical = no bleed
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+		Rarity: UNIQUE
+		0.5 Blistering Bond Test
+		Ruby Ring
+		LevelReq: 8
+		Implicits: 1
+		{tags:fire}{range:0.5}+(20-30)% to Fire Resistance
+		{tags:life}{range:0.5}+(40-60) to maximum Life
+		{tags:fire}{range:0.5}+(20-30)% to Fire Resistance
+		{tags:cold}{range:0.5}-(15-10)% to Cold Resistance
+		You take Fire Damage instead of Physical Damage from Bleeding
+		Fire Damage also Contributes to Bleeding Magnitude
+		Bleeding you Inflict deals Fire damage instead of Physical damage
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		local baseBleed = build.calcsTab.mainOutput.BleedDPS
+
+		build.configTab.input.customMods = [[
+		Adds 100 to 200 fire damage
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local baseBleedPlusFire = build.calcsTab.mainOutput.BleedDPS
+		assert.True(baseBleedPlusFire > baseBleed) -- fire can bleed, +fire = +bleed
+
+		build.configTab.input.customMods = [[
+		75% of Damage Converted to Fire Damage
+		Deal no Non-Fire Damage
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local baseBleedPlusAvatar = build.calcsTab.mainOutput.BleedDPS
+		assert.True(baseBleedPlusAvatar > 0) -- fire can bleed, deal no physical = can bleed
+	end)
+
+	it("ancestral bond", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+		Rarity: UNIQUE
+		Hoghunt
+		Felled Greatclub
+		Variant: Pre 0.1.1
+		Variant: Current
+		Selected Variant: 2
+		Quality: 20
+		LevelReq: 0
+		Implicits: 0
+		{variant:1}{range:0.5}(100-150)% increased Physical Damage
+		{variant:2}{range:0.5}Adds (16-20) to (23-27) Physical Damage
+		+15% to Critical Hit Chance
+		10% reduced Attack Speed
+		+10 to Strength
+		Maim on Critical Hit
 		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")

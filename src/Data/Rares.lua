@@ -5,42 +5,42 @@
 -- Helmet
 [[
 Armour Helmet
-Imperial Greathelm
+Runeforged Imperial Greathelm
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Evasion Helmet
-Freebooter Cap
+Runeforged Freebooter Cap
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Energy Shield Helmet
-Ancestral Tiara
+Runeforged Ancestral Tiara
 Crafted: true
 Prefix: IncreasedLife7
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield7
 ]],[[
 Armour/Evasion Helmet
-Gladiatorial Helm
+Runeforged Gladiatorial Helm
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife7
 ]],[[
 Armour/Energy Shield Helmet
-Cryptic Crown
+Runeforged Cryptic Crown
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield3
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife7
 ]],[[
 Evasion/Energy Shield Helmet
-Grinning Mask
+Runeforged Grinning Mask
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -49,42 +49,42 @@ Prefix: IncreasedLife7
 -- Gloves
 [[
 Armour Gloves
-Massive Mitts
+Runeforged Massive Mitts
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating4
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Evasion Gloves
-Polished Bracers
+Runeforged Polished Bracers
 Crafted: true
 Prefix: LocalIncreasedEvasionRating3
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Energy Shield Gloves
-Sirenscale Gloves
+Runeforged Sirenscale Gloves
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield6
 ]],[[
 Armour/Evasion Gloves
-Blacksteel Gauntlets
+Runeforged Blacksteel Gauntlets
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
 ]],[[
 Armour/Energy Shield Gloves
-Adherent Cuffs
+Runeforged Adherent Cuffs
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield3_
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 ]],[[
 Evasion/Energy Shield Gloves
-Secured Wraps
+Runeforged Secured Wraps
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -93,42 +93,42 @@ Prefix: IncreasedLife6
 -- Body Armour
 [[
 Armour Chest
-Glorious Plate
+Runeforged Soldier Cuirass
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife9
 ]],[[
 Evasion Chest
-Exquisite Vest
+Runeforged Slipstrike Vest
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife9
 ]],[[
 Energy Shield Chest
-Havoc Raiment
+Runeforged Vile Robe
 Crafted: true
 Prefix: IncreasedLife9
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield10
 ]],[[
 Armour/Evasion Chest
-Slayer Armour
+Runeforged Death Mail
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating5
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife9
 ]],[[
 Armour/Energy Shield Chest
-Zenith Vestments
+Runeforged Wolfskin Mantle
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield5
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife9
 ]],[[
 Evasion/Energy Shield Chest
-Torment Jacket
+Runeforged Sleek Jacket
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield5_
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -151,42 +151,42 @@ Prefix: IncreasedSpirit6
 -- Boots
 [[
 Armour Boots
-Tasalian Greaves
+Runeforged Tasalian Greaves
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion Boots
-Drakeskin Boots
+Runeforged Drakeskin Boots
 Crafted: true
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Energy Shield Boots
-Sekhema Sandals
+Runeforged Sekhema Sandals
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: MovementVelocity5
 ]],[[
 Armour/Evasion Boots
-Blacksteel Sabatons
+Runeforged Blacksteel Sabatons
 Crafted: true
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Armour/Energy Shield Boots
-Cryptic Leggings
+Runeforged Cryptic Leggings
 Crafted: true
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion/Energy Shield Boots
-Daggerfoot Shoes
+Runeforged Daggerfoot Shoes
 Crafted: true
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
 Prefix: IncreasedLife6
@@ -195,28 +195,28 @@ Prefix: MovementVelocity5
 -- Shields
 [[
 Armour Shield
-Tawhoan Tower Shield
+Runeforged Tawhoan Tower Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife8
 ]],[[
 Evasion Shield
-Desert Buckler
+Runeforged Desert Buckler
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife8
 ]],[[
 Armour/Evasion Shield
-Golden Targe
+Runeforged Golden Targe
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife8
 ]],[[
 Armour/Energy Shield Shield
-Blacksteel Crest Shield
+Runeforged Blacksteel Crest Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedArmourAndEnergyShield5
@@ -858,6 +858,28 @@ Prefix: ColdDamagePrefixOnWeapon6
 Prefix: LightningDamagePrefixOnWeapon6
 Suffix: GlobalSpellGemsLevelWeapon4
 ]],
+-- Talisman
+[[
+Physical Talisman
+Maji Talisman
+Crafted: true
+Prefix: LocalIncreasedPhysicalDamagePercent5
+Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
+Prefix: LocalAddedPhysicalDamageTwoHand6
+Suffix: LocalIncreasedAttackSpeed3
+Suffix: LocalCriticalStrikeChance3
+Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
+]],[[
+Elemental Talisman
+Maji Talisman
+Crafted: true
+Prefix: LocalAddedFireDamageTwoHand8_
+Prefix: LocalAddedColdDamageTwoHand8
+Prefix: LocalAddedLightningDamageTwoHand8
+Suffix: LocalIncreasedAttackSpeed3
+Suffix: LocalCriticalStrikeChance3
+Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
+]],
 -- Not in game yet.
 ---- One Hand Swords
 ---setBase Dark Blade, Physical %s, [ ]
@@ -933,18 +955,18 @@ Crafted: true
 [[
 Radius Jewel
 Time-Lost Ruby
-Radius: Small
 Crafted: true
+Radius: Small 
 ]],[[
 Radius Jewel
 Time-Lost Emerald
-Radius: Small
 Crafted: true
+Radius: Small 
 ]],[[
 Radius Jewel
 Time-Lost Sapphire
-Radius: Small
 Crafted: true
+Radius: Small 
 ]],
 -- Flasks
 			[[
