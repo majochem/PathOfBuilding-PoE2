@@ -262,7 +262,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/InfluenceTags.dat",
 		"Data/Balance/AttributeRequirements.dat",
 		"Data/Balance/GrantedEffectLabels.dat",
-		"Data/Balance/ItemInherentSkills.dat",
 		"Data/Balance/KeywordPopups.dat",
 		"Data/Balance/SoulCores.dat",
 		"Data/Balance/SoulCoreStats.dat",
@@ -368,6 +367,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/CharacterShapeshiftBasicSkills.dat",
 		"Data/Balance/UniqueOrigins.dat",
 		"Data/Balance/Origin.dat",
+		"Data/Balance/LiquidEmotionOutcomes.dat",
 	}
 	local csdFiles = {
 		"^Data/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

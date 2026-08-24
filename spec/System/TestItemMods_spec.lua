@@ -7,6 +7,13 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("retains mod tags without generation weight multipliers", function()
+		local mod = data.itemMods.Item.IgniteChanceIncrease1
+
+		assert.same({ "no_cold_spell_mods", "no_lightning_spell_mods", "no_chaos_spell_mods" }, mod.tags)
+		assert.is_nil(mod.weightMultiplierKey)
+	end)
+
 	it("shows duplicate selected variants in item tooltips when enabled", function()
 		local item = new("Item", [[
 			Rarity: Unique
@@ -31,6 +38,20 @@ describe("TetsItemMods", function()
 			end
 		end
 		assert.are.equals(2, legacyLines)
+	end)
+
+	it("shows a fallback tooltip when an item's base is no longer supported", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			Legacy Item
+			Removed Base
+		]])
+		local tooltip = new("Tooltip")
+
+		assert.has_no.errors(function()
+			build.itemsTab:AddItemTooltip(tooltip, item)
+		end)
+		assert.is_truthy(tooltip.lines[#tooltip.lines].text:find("Item base is not supported", 1, true))
 	end)
 
 	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
@@ -297,6 +318,16 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(20, build.calcsTab.mainEnv.modDB:Sum("MORE", { flags = ModFlag.Cast }, "Speed"))
 		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
+	end)
+
+	it("negative limit mods after scaling", function()
+		local baseModList = new("ModList")
+		local scaledModList = new("ModList")
+		baseModList:NewMod("EnemyAilmentThreshold", "INC", -35, "Test", 0, 0, { type = "Limit", limit = 90, neg = true })
+
+		scaledModList:ScaleAddList(baseModList, 4)
+
+		assert.are.equals(-90, scaledModList:Sum("INC", nil, "EnemyAilmentThreshold"))
 	end)
 
 	it("Jarngreipr - strength satisfies melee weapons and skills", function()
@@ -587,6 +618,12 @@ describe("TetsItemMods", function()
 		-- more curse more dmg
 		assert.are_not.equals(afterEleWeaknessPhys, afterEnfeeblePhys)
 		assert.are_not.equals(afterEleWeaknessChaos, afterEnfeebleChaos)
+
+		build.skillsTab:PasteSocketGroup("Freezing Mark 20/0  1")
+		runCallback("OnFrame")
+		-- marks are not curses and should not grant more damage
+		assert.are.equals(afterEnfeeblePhys, round(build.calcsTab.mainOutput.PhysicalStoredCombinedAvg))
+		assert.are.equals(afterEnfeebleChaos, round(build.calcsTab.mainOutput.ChaosStoredCombinedAvg))
 	end)
 
 	it("twisted empyrean", function()
